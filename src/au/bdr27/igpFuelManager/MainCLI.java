@@ -4,7 +4,7 @@
  */
 package au.bdr27.igpFuelManager;
 
-import au.bdr27.igpFuelManager.util.Fuel;
+import au.bdr27.igpFuelManager.util.FuelStrategy;
 import java.util.Scanner;
 
 /**
@@ -22,7 +22,7 @@ public class MainCLI {
             + "Option: ";
 
     public static void main(String[] args) {
-        Fuel fuel = new Fuel();
+        FuelStrategy fuel = new FuelStrategy();
         String choice = "";
         Scanner scanner = new Scanner(System.in);
         System.out.print(menu);
@@ -30,17 +30,29 @@ public class MainCLI {
         while (!choice.equals("q")) {
             switch(choice){
                 case "1":
+                    System.out.print("Please enter fuel per lap: ");
+                    fuel.setFuelPerLap(scanner.nextDouble());
                     break;
                 case "2":
+                    System.out.print("Please enter total laps: ");
+                    fuel.setTotalLaps(scanner.nextInt());
                     break;
                 case "3":
+                    System.out.print("Please enter current lap: ");
+                    fuel.setCurrentLap(scanner.nextInt());
                     break;
                 case "4":
+                    System.out.print("Please enter total fuel stops: ");
+                    fuel.setTotalStops(scanner.nextInt());
                     break;
+                default:
+                    System.out.println("Error invalid option");
             }
+            scanner.nextLine();
             System.out.print(menu);
             choice = scanner.nextLine().toLowerCase();
         }
+        System.out.println(fuel.toString());
         //
     }
 }

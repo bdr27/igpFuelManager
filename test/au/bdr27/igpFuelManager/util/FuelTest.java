@@ -42,7 +42,7 @@ public class FuelTest {
     @Test
     public void testGetTotalLaps() {
         System.out.println("getTotalLaps");
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         int expResult = 0;
         int result = instance.getTotalLaps();
         assertEquals(expResult, result);
@@ -57,7 +57,7 @@ public class FuelTest {
     public void testSetTotalLaps() {
         System.out.println("setTotalLaps");
         int totalLaps = 0;
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         instance.setTotalLaps(totalLaps);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -69,7 +69,7 @@ public class FuelTest {
     @Test
     public void testGetCurrentLap() {
         System.out.println("getCurrentLap");
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         int expResult = 0;
         int result = instance.getCurrentLap();
         assertEquals(expResult, result);
@@ -84,7 +84,7 @@ public class FuelTest {
     public void testSetCurrentLap() {
         System.out.println("setCurrentLap");
         int currentLap = 0;
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         instance.setCurrentLap(currentLap);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -96,7 +96,7 @@ public class FuelTest {
     @Test
     public void testGetTotalStops() {
         System.out.println("getTotalStops");
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         int expResult = 0;
         int result = instance.getTotalStops();
         assertEquals(expResult, result);
@@ -111,7 +111,7 @@ public class FuelTest {
     public void testSetTotalStops() {
         System.out.println("setTotalStops");
         int totalStops = 0;
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         instance.setTotalStops(totalStops);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -123,7 +123,7 @@ public class FuelTest {
     @Test
     public void testGetFuelPerLap() {
         System.out.println("getFuelPerLap");
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         double expResult = 0.0;
         double result = instance.getFuelPerLap();
         assertEquals(expResult, result, 0.0);
@@ -138,7 +138,7 @@ public class FuelTest {
     public void testSetFuelPerLap() {
         System.out.println("setFuelPerLap");
         double fuelPerLap = 0.0;
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         instance.setFuelPerLap(fuelPerLap);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -150,7 +150,7 @@ public class FuelTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        Fuel instance = new Fuel();
+        FuelStrategy instance = new FuelStrategy();
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);

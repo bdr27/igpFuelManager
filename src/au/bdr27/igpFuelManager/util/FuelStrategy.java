@@ -10,14 +10,14 @@ import java.util.ArrayList;
  *
  * @author Brendan
  */
-public class Fuel {
+public class FuelStrategy {
     private int totalLaps;
     private int currentLap = 0;
     private int totalStops;
     private double fuelPerLap;
-    private ArrayList<Stops> fuelStop;
+    private ArrayList<Stint> fuelStop;
     
-    public Fuel()
+    public FuelStrategy()
     {
     }
 

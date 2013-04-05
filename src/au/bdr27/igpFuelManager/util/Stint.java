@@ -8,6 +8,6 @@ package au.bdr27.igpFuelManager.util;
  *
  * @author Brendan
  */
-class Stops {
+class Stint {
     
 }
