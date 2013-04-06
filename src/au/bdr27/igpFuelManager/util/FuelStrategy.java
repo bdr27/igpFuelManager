@@ -14,11 +14,21 @@ public class FuelStrategy {
     private int totalLaps;
     private int currentLap = 0;
     private int totalStops;
+    private double fuelToGo;
     private double fuelPerLap;
+    private double totalFuel;
     private ArrayList<Stint> fuelStop;
     
     public FuelStrategy()
     {
+    }
+    public void calcTotalFuel()
+    {
+        totalFuel = fuelPerLap * totalLaps;
+    }
+    public void calcFuelToGo()
+    {
+        fuelToGo = fuelPerLap * (totalLaps - currentLap);
     }
 
     public int getTotalLaps() {
@@ -34,6 +44,9 @@ public class FuelStrategy {
     }
 
     public void setCurrentLap(int currentLap) {
+        if(currentLap > 0){
+            currentLap--;
+        }
         this.currentLap = currentLap;
     }
 
