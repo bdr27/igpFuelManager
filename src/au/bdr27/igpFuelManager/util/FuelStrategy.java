@@ -69,7 +69,9 @@ public class FuelStrategy {
     @Override
     public String toString()
     {
-        return String.format("current lap: %d, total laps: %d, total stops: %d, fuel per lap: %f", currentLap, totalLaps, totalStops, fuelPerLap);
+        return String.format("Current lap: %d%nTotal laps: %d%nTotal stops: "
+                + "%d%nFuel per lap: %.2f%nTotal Fuel: %.2f%n"
+                + "Fuel To Go: %.2f%n", currentLap + 1, totalLaps, totalStops, 
+                fuelPerLap, totalFuel, fuelToGo);
     }
-    
 }
