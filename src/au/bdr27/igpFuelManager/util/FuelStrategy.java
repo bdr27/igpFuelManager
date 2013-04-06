@@ -17,7 +17,9 @@ public class FuelStrategy {
     private double fuelToGo;
     private double fuelPerLap;
     private double totalFuel;
-    private ArrayList<Stint> fuelStop;
+    private double fuelPerStrint;
+    private Stint averageFuelStops;
+    private ArrayList<Stint> fuelStops;
     
     public FuelStrategy()
     {
@@ -48,6 +50,10 @@ public class FuelStrategy {
             currentLap--;
         }
         this.currentLap = currentLap;
+    }
+    public void generateEvenStints() {
+        averageFuelStops = new Stint((totalFuel/totalStops), (totalLaps/totalStops));
+        System.out.println(averageFuelStops.toString());
     }
 
     public int getTotalStops() {

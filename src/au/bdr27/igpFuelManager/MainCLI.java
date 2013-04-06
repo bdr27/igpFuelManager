@@ -61,6 +61,7 @@ public class MainCLI {
             fuel.setCurrentLap(4);
             fuel.calcFuelToGo();
             fuel.calcTotalFuel();
+            fuel.generateEvenStints();
         }
         
         System.out.println(fuel.toString());
