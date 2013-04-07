@@ -19,7 +19,7 @@ public class FuelStrategy {
     private double totalFuel;
     private double fuelPerStrint;
     private Stint averageFuelStops;
-    private ArrayList<Stint> fuelStops;
+    private Stints stints; 
     
     public FuelStrategy()
     {
