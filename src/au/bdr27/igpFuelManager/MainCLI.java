@@ -56,6 +56,7 @@ public class MainCLI {
                 choice = scanner.nextLine().toLowerCase();
             }
         }else{
+            //Random number will be used for testing purposes
             Random random = new Random();
             fuel.setFuelPerLap(3);
             fuel.setTotalLaps(10);
