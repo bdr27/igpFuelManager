@@ -5,6 +5,7 @@
 package au.bdr27.igpFuelManager;
 
 import au.bdr27.igpFuelManager.util.FuelStrategy;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -55,6 +56,7 @@ public class MainCLI {
                 choice = scanner.nextLine().toLowerCase();
             }
         }else{
+            Random random = new Random();
             fuel.setFuelPerLap(3);
             fuel.setTotalLaps(10);
             fuel.setTotalStops(2);
