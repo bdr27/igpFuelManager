@@ -62,8 +62,8 @@ public class MainCLI {
             fuel.setTotalStops(1);
             fuel.calcFuelToGo();
             fuel.calcTotalFuel();
-            fuel.generateEvenStint();
-            fuel.generateEvenStints();
+            fuel.calcEvenStint();
+            fuel.calcEvenStints();
         }
         System.out.println(fuel.getAverageFuelStops().toString());
         System.out.println(fuel.toString());

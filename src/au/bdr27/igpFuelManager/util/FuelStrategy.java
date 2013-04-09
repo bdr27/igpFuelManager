@@ -26,10 +26,6 @@ public class FuelStrategy {
     public FuelStrategy() {
     }
 
-    public void calcTotalFuel() {
-        totalFuel = fuelPerLap * totalLaps;
-    }
-
     public void calcFuelToGo() {
         fuelToGo = fuelPerLap * (totalLaps - currentLap);
     }
@@ -62,12 +58,12 @@ public class FuelStrategy {
         this.currentLap = currentLap;
     }
 
-    private void generateTotalFuel() {
+    public void calcTotalFuel() {
         totalFuel = totalLaps * fuelPerLap;
     }
 
-    public void generateEvenStint() {
-        generateTotalFuel();
+    public void calcEvenStint() {
+        calcTotalFuel();
         averageFuelStops = new Stint(totalFuel / totalStints, totalLaps / totalStints);
     }
 
@@ -75,8 +71,8 @@ public class FuelStrategy {
         return averageFuelStops;
     }
 
-    public void generateEvenStints() {
-        generateTotalFuel();
+    public void calcEvenStints() {
+        calcTotalFuel();
 
         double lapsPerStint = totalLaps / totalStints;
         int extraLaps = totalLaps % totalStints;
@@ -103,6 +99,16 @@ public class FuelStrategy {
 
     public void setFuelPerLap(double fuelPerLap) {
         this.fuelPerLap = fuelPerLap;
+    }
+    
+    public String printStints(){
+        String message = "";
+        for(int i = 0; i < stints.size(); i++){
+            message += String.format("Stint %d%n", i + 1);
+            message += stints.get(i).toString();
+            message += '\n';
+        }
+        return message;
     }
 
     @Override
