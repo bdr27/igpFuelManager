@@ -1,0 +1,5 @@
+Contained in this file is the source and executable for a fuel manager app I am working on.
+
+If all you are concerned with is the app the copy the igpFuelManager-Beta1 file out and delete the rest.
+
+ If you are interested in the source code everything is here for you to be able to load up the project in netbeans
