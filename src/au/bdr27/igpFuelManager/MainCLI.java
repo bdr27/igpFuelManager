@@ -59,14 +59,15 @@ public class MainCLI {
             //Random number will be used for testing purposes
             Random random = new Random();
             fuel.setFuelPerLap(3);
-            fuel.setTotalLaps(10);
+            fuel.setTotalLaps(11);
             fuel.setTotalStops(2);
             fuel.setCurrentLap(4);
             fuel.calcFuelToGo();
             fuel.calcTotalFuel();
+            fuel.generateEvenStint();
             fuel.generateEvenStints();
         }
-        
+        System.out.println(fuel.getAverageFuelStops().toString());
         System.out.println(fuel.toString());
         
     }

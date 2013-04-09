@@ -8,7 +8,7 @@ package au.bdr27.igpFuelManager.util;
  *
  * @author Brendan
  */
-class Stint {
+public class Stint {
     double fuel;
     double lap;
     
