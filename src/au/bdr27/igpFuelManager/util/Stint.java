@@ -24,10 +24,13 @@ public class Stint {
     public double getLap(){
         return lap;
     }
+    public String printStint(){
+        return String.format("Fuel: %.2f Laps: %.0f ", fuel, lap);
+    }
     
     @Override
     public String toString()
     {
-        return String.format("Fuel:%.2f%nLaps:%.2f%n", fuel, lap);
+        return String.format("Fuel:%.2f Laps:%.2f ", fuel, lap);
     }
 }

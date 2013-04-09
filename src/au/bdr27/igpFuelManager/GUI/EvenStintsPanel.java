@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -28,6 +29,8 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
     private JLabel lblStops = new JLabel("Total Stops: ");
     private JLabel lblFuel = new JLabel("Fuel Per Lap: ");
     private JLabel lblLaps = new JLabel("Total Laps: ");
+    private JLabel lblCurrentLap = new JLabel("Current Lap: ");
+    private JTextField txtCurrentLap = new JTextField("0");
     private JTextField txtStops = new JTextField();
     private JTextField txtFuel = new JTextField();
     private JTextField txtLaps = new JTextField();
@@ -39,17 +42,20 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
         this.setLayout(new BorderLayout());
         stintInfoPanel.setLayout(new GridLayout(0, 2));
 
+        stintInfoPanel.add(lblCurrentLap);
+        stintInfoPanel.add(txtCurrentLap);
+        stintInfoPanel.add(lblLaps);
+        stintInfoPanel.add(txtLaps);
         stintInfoPanel.add(lblStops);
         stintInfoPanel.add(txtStops);
         stintInfoPanel.add(lblFuel);
         stintInfoPanel.add(txtFuel);
-        stintInfoPanel.add(lblLaps);
-        stintInfoPanel.add(txtLaps);
 
         //Aligns text to the right
         lblStops.setHorizontalAlignment(JLabel.RIGHT);
         lblFuel.setHorizontalAlignment(JLabel.RIGHT);
         lblLaps.setHorizontalAlignment(JLabel.RIGHT);
+        lblCurrentLap.setHorizontalAlignment(JLabel.RIGHT);
 
         //Accept cancel buttons
         acceptCancelPanel.setLayout(new FlowLayout());
@@ -85,12 +91,14 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
     }
 
     private void clearAllTextBackground() {
-        txtStops.setBackground(Color.white);
-        txtFuel.setBackground(Color.white);
-        txtLaps.setBackground(Color.white);
+        txtStops.setBackground(Color.WHITE);
+        txtFuel.setBackground(Color.WHITE);
+        txtLaps.setBackground(Color.WHITE);
+        txtCurrentLap.setBackground(Color.WHITE);
     }
 
     private void clearAllText() {
+        txtCurrentLap.setText("0");
         txtStops.setText("");
         txtFuel.setText("");
         txtLaps.setText("");
@@ -100,7 +108,8 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
     private boolean validInput() {
 
         //Checks each input
-        if (checkTextFieldForInt(txtStops) & checkTextFieldForDouble(txtFuel) & checkTextFieldForInt(txtLaps)) {
+        if (checkTextFieldForInt(txtCurrentLap) & checkTextFieldForDouble(txtFuel)
+                & checkTextFieldForInt(txtLaps) & checkTextFieldForInt(txtStops)) {
             return true;
         }
         return false;
@@ -159,6 +168,7 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
                 fuel.setFuelPerLap(Double.parseDouble(txtFuel.getText()));
                 fuel.setTotalLaps(Integer.parseInt(txtLaps.getText()));
                 fuel.setTotalStops(Integer.parseInt(txtStops.getText()));
+                fuel.setCurrentLap(Integer.parseInt(txtCurrentLap.getText()));
                 fuel.calcEvenStints();
                 txtStintInfo.setText(fuel.printStints());
             } else {

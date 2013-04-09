@@ -37,13 +37,13 @@ public class FuelStrategy {
     public void setTotalLaps(int totalLaps) {
         this.totalLaps = totalLaps;
     }
-    
-    public void setTotalStops(int totalStops){
+
+    public void setTotalStops(int totalStops) {
         this.totalStops = totalStops++;
         this.totalStints = totalStops;
     }
-    
-    public int getTotalStops(){
+
+    public int getTotalStops() {
         return totalStops;
     }
 
@@ -73,9 +73,9 @@ public class FuelStrategy {
 
     public void calcEvenStints() {
         calcTotalFuel();
-
-        double lapsPerStint = totalLaps / totalStints;
-        int extraLaps = totalLaps % totalStints;
+        int lapsToGo = totalLaps - currentLap;
+        double lapsPerStint = lapsToGo / totalStints;
+        int extraLaps = lapsToGo % totalStints;
         if (DEBUG) {
             System.out.println("extra laps: " + extraLaps);
         }
@@ -100,12 +100,12 @@ public class FuelStrategy {
     public void setFuelPerLap(double fuelPerLap) {
         this.fuelPerLap = fuelPerLap;
     }
-    
-    public String printStints(){
+
+    public String printStints() {
         String message = "";
-        for(int i = 0; i < stints.size(); i++){
-            message += String.format("Stint %d%n", i + 1);
-            message += stints.get(i).toString();
+        for (int i = 0; i < stints.size(); i++) {
+            message += String.format("Stint: %d ", i + 1);
+            message += stints.get(i).printStint();
             message += '\n';
         }
         return message;
