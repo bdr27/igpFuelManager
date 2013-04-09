@@ -15,6 +15,7 @@ public class FuelStrategy {
     private final boolean DEBUG = true;
     private int totalLaps;
     private int currentLap = 0;
+    private int totalStints;
     private int totalStops;
     private double fuelToGo;
     private double fuelPerLap;
@@ -40,6 +41,15 @@ public class FuelStrategy {
     public void setTotalLaps(int totalLaps) {
         this.totalLaps = totalLaps;
     }
+    
+    public void setTotalStops(int totalStops){
+        this.totalStops = totalStops++;
+        this.totalStints = totalStops;
+    }
+    
+    public int getTotalStops(){
+        return totalStops;
+    }
 
     public int getCurrentLap() {
         return currentLap;
@@ -58,7 +68,7 @@ public class FuelStrategy {
 
     public void generateEvenStint() {
         generateTotalFuel();
-        averageFuelStops = new Stint(totalFuel / totalStops, totalLaps / totalStops);
+        averageFuelStops = new Stint(totalFuel / totalStints, totalLaps / totalStints);
     }
 
     public Stint getAverageFuelStops() {
@@ -68,31 +78,23 @@ public class FuelStrategy {
     public void generateEvenStints() {
         generateTotalFuel();
 
-        double lapsPerStint = totalLaps / totalStops;
-        double extraLaps = totalLaps % totalStops;
+        double lapsPerStint = totalLaps / totalStints;
+        int extraLaps = totalLaps % totalStints;
         if (DEBUG) {
             System.out.println("extra laps: " + extraLaps);
         }
-        for (int i = 0; i < totalStops; i++) {
-            double laps = lapsPerStint;
+        for (int i = 0; i < totalStints; i++) {
+            int laps = (int) lapsPerStint;
             if (extraLaps > i) {
                 laps++;
             }
             double fuel = laps * fuelPerLap;
             if (DEBUG) {
-                System.out.println("fuel: " + fuel + "laps: " + laps);
+                System.out.printf("fuel: %.2f, laps: %d%n", fuel, laps);
             }
             Stint stint = new Stint(fuel, laps);
             stints.add(stint);
         }
-    }
-
-    public int getTotalStops() {
-        return totalStops;
-    }
-
-    public void setTotalStops(int totalStops) {
-        this.totalStops = totalStops;
     }
 
     public double getFuelPerLap() {

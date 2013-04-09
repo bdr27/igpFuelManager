@@ -57,11 +57,9 @@ public class MainCLI {
             }
         }else{
             //Random number will be used for testing purposes
-            Random random = new Random();
-            fuel.setFuelPerLap(3);
-            fuel.setTotalLaps(11);
+            fuel.setFuelPerLap(3.4);
+            fuel.setTotalLaps(28);
             fuel.setTotalStops(2);
-            fuel.setCurrentLap(4);
             fuel.calcFuelToGo();
             fuel.calcTotalFuel();
             fuel.generateEvenStint();

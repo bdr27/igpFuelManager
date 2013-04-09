@@ -28,6 +28,6 @@ public class Stint {
     @Override
     public String toString()
     {
-        return String.format("Fuel:%.2f%nLaps:%.2f%n", fuel, lap);
+        return String.format("Fuel:%.2f%n Laps:%.2f%n", fuel, lap);
     }
 }
