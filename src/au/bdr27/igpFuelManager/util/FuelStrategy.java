@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class FuelStrategy {
 
-    private final boolean DEBUG = true;
+    private final boolean DEBUG = Debug.value;
     private int totalLaps;
     private int currentLap = 0;
     private int totalStints;
@@ -104,7 +104,7 @@ public class FuelStrategy {
     public String printStints() {
         String message = "";
         for (int i = 0; i < stints.size(); i++) {
-            message += String.format("Stint: %d ", i + 1);
+            message += String.format("\tStint: %d ", i + 1);
             message += stints.get(i).printStint();
             message += '\n';
         }

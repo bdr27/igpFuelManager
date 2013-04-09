@@ -4,6 +4,7 @@
  */
 package au.bdr27.igpFuelManager.GUI;
 
+import au.bdr27.igpFuelManager.util.Debug;
 import au.bdr27.igpFuelManager.util.FuelStrategy;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,7 +24,7 @@ import javax.swing.JTextField;
  * @author Brendan
  */
 public class EvenStintsPanel extends JPanel implements ActionListener {
-
+    private boolean DEBUG = Debug.value;
     private JPanel acceptCancelPanel = new JPanel();
     private JPanel stintInfoPanel = new JPanel();
     private JLabel lblStops = new JLabel("Total Stops: ");
@@ -117,6 +118,7 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
 
     private boolean checkTextFieldForDouble(JTextField textField) {
         boolean valid = true;
+        textField.setText(textField.getText().trim());
         try {
             double x = Double.parseDouble(textField.getText());
             if (x < 0) {
@@ -134,7 +136,7 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
 
     private boolean checkTextFieldForInt(JTextField textField) {
         boolean valid = true;
-
+        textField.setText(textField.getText().trim());
         //Checks if it is an int and is greater then 0
         try {
             int x = Integer.parseInt(textField.getText());
@@ -171,8 +173,13 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
                 fuel.setCurrentLap(Integer.parseInt(txtCurrentLap.getText()));
                 fuel.calcEvenStints();
                 txtStintInfo.setText(fuel.printStints());
+                if (DEBUG) {
+                    System.out.println("Success");
+                }
             } else {
-                System.out.println("Failed");
+                if (DEBUG) {
+                    System.out.println("Failed");
+                }
             }
         }
     }
