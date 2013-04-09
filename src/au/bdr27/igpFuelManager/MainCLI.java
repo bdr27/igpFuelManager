@@ -57,9 +57,9 @@ public class MainCLI {
             }
         }else{
             //Random number will be used for testing purposes
-            fuel.setFuelPerLap(3.4);
+            fuel.setFuelPerLap(3.9);
             fuel.setTotalLaps(28);
-            fuel.setTotalStops(2);
+            fuel.setTotalStops(1);
             fuel.calcFuelToGo();
             fuel.calcTotalFuel();
             fuel.generateEvenStint();
