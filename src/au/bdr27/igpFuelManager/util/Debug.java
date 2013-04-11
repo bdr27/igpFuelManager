@@ -9,5 +9,5 @@ package au.bdr27.igpFuelManager.util;
  * @author Brendan
  */
 public class Debug {
-    public static final boolean value = false;
+    public static final boolean value = true;
 }

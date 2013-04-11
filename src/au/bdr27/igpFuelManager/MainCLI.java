@@ -5,6 +5,7 @@
 package au.bdr27.igpFuelManager;
 
 import au.bdr27.igpFuelManager.util.FuelStrategy;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -64,6 +65,10 @@ public class MainCLI {
             fuel.calcTotalFuel();
             fuel.calcEvenStint();
             fuel.calcEvenStints();
+            ArrayList<Integer> testLaps = new ArrayList<>();
+            testLaps.add(23);
+            testLaps.add(50);
+            fuel.calcCustomStints(testLaps);
         }
         System.out.println(fuel.getAverageFuelStops().toString());
         System.out.println(fuel.toString());

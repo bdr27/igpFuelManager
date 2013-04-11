@@ -21,7 +21,7 @@ public class FuelStrategy {
     private double fuelPerLap;
     private double totalFuel;
     private Stint averageFuelStops;
-    private ArrayList<Stint> stints = new ArrayList<Stint>();
+    private ArrayList<Stint> stints;
 
     public FuelStrategy() {
     }
@@ -71,8 +71,23 @@ public class FuelStrategy {
         return averageFuelStops;
     }
 
+    public void calcCustomStints(ArrayList<Integer> stopLaps) {
+        calcTotalFuel();
+        stints = new ArrayList<>();
+        int lapsToGo = totalLaps - currentLap;
+
+        for (int stopLap : stopLaps) {
+            if (DEBUG) {
+                System.out.println("Stop Laps: " + stopLap);
+            }
+            Stint stint = new Stint(stopLap * fuelPerLap, stopLap);
+            stints.add(stint);
+        }
+    }
+
     public void calcEvenStints() {
         calcTotalFuel();
+        stints = new ArrayList<>();
         int lapsToGo = totalLaps - currentLap;
         double lapsPerStint = lapsToGo / totalStints;
         int extraLaps = lapsToGo % totalStints;
