@@ -74,7 +74,6 @@ public class FuelStrategy {
     public void calcCustomStints(ArrayList<Integer> stopLaps) {
         calcTotalFuel();
         stints = new ArrayList<>();
-        int lapsToGo = totalLaps - currentLap;
 
         for (int stopLap : stopLaps) {
             if (DEBUG) {
@@ -83,6 +82,9 @@ public class FuelStrategy {
             Stint stint = new Stint(stopLap * fuelPerLap, stopLap);
             stints.add(stint);
         }
+    }
+    public ArrayList<Stint> getStints(){
+        return stints;
     }
 
     public void calcEvenStints() {

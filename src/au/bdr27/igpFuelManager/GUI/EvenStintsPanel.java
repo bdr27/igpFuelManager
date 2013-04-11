@@ -6,16 +6,19 @@ package au.bdr27.igpFuelManager.GUI;
 
 import au.bdr27.igpFuelManager.util.Debug;
 import au.bdr27.igpFuelManager.util.FuelStrategy;
+import au.bdr27.igpFuelManager.util.Stint;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -25,6 +28,8 @@ import javax.swing.JTextField;
  */
 public class EvenStintsPanel extends JPanel implements ActionListener {
     private boolean DEBUG = Debug.value;
+    //private String[] columnNames = {"Stint", "Fuel", "Lap"};
+    //private Object[][] data = new Object[10][columnNames.length];
     private JPanel acceptCancelPanel = new JPanel();
     private JPanel stintInfoPanel = new JPanel();
     private JLabel lblStops = new JLabel("Total Stops: ");
@@ -35,6 +40,7 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
     private JTextField txtStops = new JTextField();
     private JTextField txtFuel = new JTextField();
     private JTextField txtLaps = new JTextField();
+    //private JTable stintInfoTable = new JTable(data,columnNames);
     private JTextArea txtStintInfo = new JTextArea();
     private JButton btnClear = new JButton("Clear");
     private JButton btnGo = new JButton("Go");
@@ -62,8 +68,10 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
         acceptCancelPanel.setLayout(new FlowLayout());
         acceptCancelPanel.add(btnClear);
         acceptCancelPanel.add(btnGo);
-        txtStintInfo.setEnabled(false);
+   //     txtStintInfo.setEnabled(false);
 
+//        stintInfoTable.setEnabled(false);
+        //this.add(stintInfoTable, BorderLayout.CENTER);
         this.add(txtStintInfo, BorderLayout.CENTER);
         this.add(stintInfoPanel, BorderLayout.PAGE_START);
         this.add(acceptCancelPanel, BorderLayout.PAGE_END);
@@ -154,6 +162,23 @@ public class EvenStintsPanel extends JPanel implements ActionListener {
         return valid;
 
     }
+//    private void setUpTable(ArrayList<Stint> stints){
+//        data = new Object[stints.size()][columnNames.length];
+//        for(int i = 0; i < stints.size(); i++){
+//            for(int j=0; j < 3; j++){
+//                double num = 0;
+//                if(j == 0){
+//                    num = i + 1;
+//                }else if(j == 1){
+//                    num = stints.get(i).getFuel();
+//                }else if(j == 2){
+//                    num = stints.get(i).getLap();
+//                }
+//                data[i][j] = num;
+//            }
+//        }
+//        stintInfoTable = new JTable(data, columnNames);
+//    }
 
     private void invalidTextField(JTextField textField) {
         textField.setBackground(Color.red);
